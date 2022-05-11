@@ -19,6 +19,7 @@ function Show({bread, index}) {
             </p>
             <img src={bread.image} alt={bread.name}/>
             <a href="/breads"><button>Go home</button></a>
+            <a href={`/breads/${index}/edit`}><button>Edit</button></a>
             {/* Setting up Delete for Form Use*/}
             <form action ={`/breads/${index}?_method=DELETE`} method="POST">
                 <input type='submit' value="DELETE"/>
