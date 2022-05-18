@@ -74,7 +74,7 @@ breads.post('/', (req, res) => {
 })
 
 //UPDATE
-breads.put('/:arrayIndex', (req, res) => {
+breads.put('/:id', (req, res) => {
     if(req.body.hasGluten === 'on') {
         req.body.hasGluten = true
     } else {
