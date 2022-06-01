@@ -4,14 +4,14 @@ const Baker = require('../models/baker.js')
 const breads = express.Router()
 
 //INDEX
-breads.get('/', (req, res) => {
-   Bread.find()
-        .then(foundBreads => {
-            res.render('index', {
-                breads: foundBreads,
-                title: 'Index Page'
-            })
-        })
+breads.get('/', async (req, res) => {
+    const foundBakers = await Baker.find().lean()
+    const foundBreads = await Bread.find().limit(2).lean()
+    res.render('index', {
+        breads: foundBreads,
+        bakers: foundBakers,
+        title: 'Index Page'
+    })
 })
 
 //CREATE
